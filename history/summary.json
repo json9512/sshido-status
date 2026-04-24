@@ -1,0 +1,20 @@
+[
+  {
+    "name": "sshido push relay",
+    "url": "https://push.sshido.com/health",
+    "icon": "https://icons.duckduckgo.com/ip3/push.sshido.com.ico",
+    "slug": "sshido-push-relay",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 237,
+    "timeDay": 237,
+    "timeWeek": 237,
+    "timeMonth": 237,
+    "timeYear": 237,
+    "dailyMinutesDown": {}
+  }
+]

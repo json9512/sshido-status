@@ -20,18 +20,6 @@ sites:
     expectedStatusCodes:
       - 200
 
-  - name: sshido subscribe endpoint
-    url: https://push.sshido.com/subscribe
-    method: POST
-    headers:
-      - "Content-Type: application/json"
-    body: '{"deviceToken":"upptime-probe-not-a-real-token"}'
-    # Subscribe with a bogus token should return 4xx (validation rejects it).
-    # A 5xx here means the relay's request pipeline is broken.
-    expectedStatusCodes:
-      - 400
-      - 422
-
 status-website:
   cname: status.sshido.com
   name: sshido status

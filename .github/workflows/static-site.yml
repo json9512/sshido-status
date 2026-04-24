@@ -6,13 +6,20 @@ on:
     types:
       - static_site
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".upptimerc.yml"
+      - "history/**"
+      - "summary.json"
 permissions:
   contents: write
-  issues: write
   pages: write
+  id-token: write
 jobs:
-  release:
-    name: Check status
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,3 +28,16 @@ jobs:
           command: "site"
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./__sapper__/export
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
